@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     // Verifica se o número de itens no histórico excede o limite
     if (historyList.children().length >= maxHistoryItems) {
-        historyList.children().first().remove(); // Remove o quadrado mais antigo
+        historyList.children().last().remove(); // Remove o quadrado mais antigo
     }
 
     // Cria um novo quadrado colorido
@@ -114,7 +114,7 @@ $(document).ready(function () {
                     // Caso contrário, continua rodando
                     spinOnce();
                 }
-            }, 3000); // Duração da animação de 3 segundos
+            }, 500); // Duração da animação de 3 segundos
         }
 
         spinOnce();
@@ -158,7 +158,7 @@ $(document).ready(function () {
 
                     // Continua rodando até atingir 10+1
                     spinOnce();
-                }, 3000); // Duração da animação de 3 segundos
+                }, 500); // Duração da animação de 3 segundos
             } else {
                 loadingSpinner.hide();
             }
@@ -212,6 +212,6 @@ $(document).ready(function () {
 
             // Atualiza o histórico com o quadrado colorido
             updateHistory(selectedRarity);
-        }, 3000); // Duração da animação de 3 segundos
+        }, 500); // Duração da animação de 3 segundos
     });
 });
