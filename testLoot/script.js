@@ -17,7 +17,8 @@ $(document).ready(function () {
         "Common": 0,
         "Rare": 0,
         "Mythical": 0,
-        "Legendary": 0
+        "Legendary": 0,
+        "Total": 0
     };
 
     // Função para selecionar uma raridade com base nas probabilidades
@@ -40,6 +41,7 @@ $(document).ready(function () {
         $('#rareCount').text(rarityCounters["Rare"]);
         $('#mythicalCount').text(rarityCounters["Mythical"]);
         $('#legendaryCount').text(rarityCounters["Legendary"]);
+        $('#total').text(rarityCounters["Total"]);
     }
 
     $('#spin').click(function () {
@@ -69,6 +71,8 @@ $(document).ready(function () {
             // Incrementa o contador da raridade selecionada
             rarityCounters[selectedRarity]++;
 
+            // Incrementa o contador total de aberturas
+            rarityCounters['Total']++;
             // Atualiza os contadores na tela
             updateCounters();
         }, 3000); // Duração da animação de 3 segundos
