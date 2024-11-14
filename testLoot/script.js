@@ -55,7 +55,7 @@ $(document).ready(function () {
     // Função para adicionar o histórico com quadrados coloridos
     function updateHistory(rarity) {
     const historyList = $('#historicoLista'); // O container do histórico
-    const maxHistoryItems = 120; // Defina o número máximo de quadrados no histórico
+    const maxHistoryItems = 138; // Defina o número máximo de quadrados no histórico
 
     // Verifica se o número de itens no histórico excede o limite
     if (historyList.children().length >= maxHistoryItems) {
