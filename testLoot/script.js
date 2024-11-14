@@ -55,7 +55,7 @@ $(document).ready(function () {
     // Função para adicionar o histórico com quadrados coloridos
     function updateHistory(rarity) {
     const historyList = $('#historicoLista'); // O container do histórico
-    const maxHistoryItems = 78; // Defina o número máximo de quadrados no histórico
+    const maxHistoryItems = 120; // Defina o número máximo de quadrados no histórico
 
     // Verifica se o número de itens no histórico excede o limite
     if (historyList.children().length >= maxHistoryItems) {
@@ -65,8 +65,8 @@ $(document).ready(function () {
     // Cria um novo quadrado colorido
     const historyItem = $('<div>') 
         .css({
-            width: '30px',   // Tamanho do quadrado
-            height: '30px',  // Tamanho do quadrado
+            width: '25px',   // Tamanho do quadrado
+            height: '25px',  // Tamanho do quadrado
             backgroundColor: rarityColors[rarity], // Cor do quadrado
             borderRadius: '4px', // Tornar os quadrados ligeiramente arredondados
         });
