@@ -10,46 +10,32 @@
 
 </head>
 
-<body class="" id="bg">
-	<center><h1>Gacha Simulator</h1></center>
+<body class="bg-dark bg-gradient" id="bg">
+	<center><h1 class="text-white">Gacha Simulator</h1></center>
 	<div style="width:100%;overflow:auto;">
 		<div style="float:left; width: 50%">
 			<center>
 				<table>
 					<tr>
 						<th>Rarity</th>
-						<th>Rates</th>
+						<th>Results</th>
 					</tr>
 					<tr>
-						<td>3*</td><td>70%</td>
+						<td>Common</td><td id="resCommon">0</td>
 					</tr>
 					<tr>
-						<td>4*</td><td>27%</td>
+						<td>Rare</td><td id="resRare">0</td>
 					</tr>
 					<tr>
-						<td>5*</td><td>3%</td>
+						<td>Mythical</td><td id="resMythical">0</td>
+					</tr>
+					<tr>
+						<td>Legendary</td><td id="resLegendary">0</td>
 					</tr>
 				</table>
-				<br />
-
-				<table>
-					<tr>
-						<td><button type="button" class="btn btn-success" onclick="pull(1)">Summon Once</button></td>
-						<td><button type="button" class="btn btn-warning" onclick="pull(2)">Summon 10+1</button></td>
-						<td><button type="button" class="btn btn-danger" onclick="pull(3)">Summon Until 5*</button></td>
-					</tr>
-				</table>
-
-				<br />
-				<table>
-					<tr><th colspan="2">Results</th></tr>
-					<tr><td>3*</td><td id="res3">0</td></tr>
-					<tr><td>4*</td><td id="res4">0</td></tr>
-					<tr><td>5*</td><td id="res5">0</td></tr>
-					<tr><td>Number of Pulls</td><td id="numPulls">0</td></tr>
-				</table>
-				<br />
-				<button onclick="clearResults()">Clear Results</button>
+				<br/>
+				
+				<a class="btn btn-primary" href="testLoot/index.html">Csgo Case</a>
 			</center>
 		</div>
 		<div style="float:right;">
