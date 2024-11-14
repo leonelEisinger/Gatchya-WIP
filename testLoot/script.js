@@ -72,7 +72,7 @@ $(document).ready(function () {
         });
 
     // Adiciona o quadrado ao container de histórico
-    historyList.append(historyItem);
+    historyList.prepend(historyItem);
 }
 
     // Função para rodar a roleta até aparecer uma "Legendary"
