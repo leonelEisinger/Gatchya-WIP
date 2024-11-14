@@ -10,8 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a class="back btn btn-secondary position-absolute top-0 start-0" href="../gatcha.html">Back</a>
-    <div class="loading"></div>
+    <a class="back btn btn-secondary position-absolute top-0 start-0 m-2" href="../gatcha.html">Back</a>
+    <div class="loading position-absolute mb-5"></div>
     <div class="carousel">
         <div class="raridade common">Common</div>
         <div class="raridade rare">Rare</div>
@@ -27,8 +27,18 @@
         <p>Legendary: <span id="legendaryCount">0</span></p>
         <p>Total Aberto: <span id="total">0</span></p>
     </div>
+    <div id="buttons-options" class="d-inline position-absolute position-absolute top-0" >
+        <button class="btn btn-success mt-3" id="spin">Spin Once</button>
+        <button class="btn btn-warning mt-3" id="ten">10 + 1</button>
+        <button class="btn btn-danger mt-3" id="legendary">Until legendary</button>
+    </div>
 
-    <button class="btn btn-success mt-3" id="spin">Spin</button>
+    <div id="historico">
+        <div id="historicoLista" class="position-absolute bottom-0 start-0 d-flex flex-wrap gap-1 m-2">
+            <!-- Os quadrados coloridos serão adicionados aqui -->
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
