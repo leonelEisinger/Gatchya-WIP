@@ -21,6 +21,8 @@ $(document).ready(function () {
         "Total": 0
     };
 
+    
+
     // Definir as cores para cada raridade
     const rarityColors = {
         "Common": "#aaa", // Cor para 'Common' (cinza)
