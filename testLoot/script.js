@@ -2,7 +2,6 @@ $(document).ready(function () {
     const cards = $('.raridade');
     const results = ["Common", "Rare", "Mythical", "Legendary"];
     const loadingSpinner = $('.loading');
-    const isrunning = false;
     loadingSpinner.hide();
 
     // Definir as probabilidades para cada raridade
