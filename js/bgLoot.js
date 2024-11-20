@@ -2,6 +2,7 @@ $(document).ready(function () {
     const cards = $('.raridade');
     const results = ["Common", "Rare", "Mythical", "Legendary"];
     const loadingSpinner = $('.loading');
+    var animationDuration = 1000; // 1 segundo dura a animação
     loadingSpinner.hide();
 
     // Definir as probabilidades para cada raridade
@@ -79,35 +80,17 @@ $(document).ready(function () {
 
     // Função para rodar a roleta até aparecer uma "Legendary"
     function legendary($button) {
-        // Exibe a animação de carregamento
-        loadingSpinner.show();
-        // Reseta as cartas
-        cards.css({ opacity: 0, transform: 'scale(0.5)' });
-
-        // Adiciona a animação de spin
-        $('.carousel').addClass('spin-animation');
-
         // Função para rodar a roleta até encontrar uma "Legendary"
         function spinOnce() {
-            setTimeout(function () {
-                // Obtém a raridade com base nas probabilidades
-                const selectedRarity = getRarity();
-
-                // Encontra o índice correspondente à raridade selecionada
-                const selectedIndex = results.indexOf(selectedRarity);
-
-                const selectedCard = cards.eq(selectedIndex);
-
-                // Incrementa o contador da raridade selecionada
-                rarityCounters[selectedRarity]++;
-                rarityCounters['Total']++;
-
-                // Atualiza os contadores na tela
-                updateCounters();
-
-                // Atualiza o histórico com o quadrado colorido
-                updateHistory(selectedRarity);
-
+            let delay = 0; // Controle de atraso acumulativo para cada execução
+        
+            for (let i = 0; i < times; i++) {
+                setTimeout(() => {
+                    spin($button);
+                }, delay);
+        
+            delay += animationDuration + 500; // Tempo suficiente para a animação + margem de segurança
+            }
                 // Se for uma "Legendary", finaliza o processo
                 if (selectedRarity === "Legendary") {
                     loadingSpinner.hide();
@@ -116,63 +99,70 @@ $(document).ready(function () {
                 } else {
                     // Caso contrário, continua rodando
                     spinOnce();
-                }
-            }, 500); // Duração da animação de 3 segundos
-        }
-
-        spinOnce();
     
     }
 
     // Função para rodar a roleta 10 vezes + 1 extra
-    function ten($button) {
+    function ten($button, times) {
+        let delay = 0; // Controle de atraso acumulativo para cada execução
+        
+        for (let i = 0; i < times; i++) {
+            setTimeout(() => {
+                spin($button);
+            }, delay);
+        
+            delay += animationDuration + 500; // Tempo suficiente para a animação + margem de segurança
+        }
+    }
+
+    function spin($button){
         // Exibe a animação de carregamento
         loadingSpinner.show();
 
         // Reseta as cartas
         cards.css({ opacity: 0, transform: 'scale(0.5)' });
 
-
         // Adiciona a animação de spin
         $('.carousel').addClass('spin-animation');
 
-        let spinCount = 0;
+        // Usamos um tempo maior para garantir que a animação do spin seja visível
 
-        function spinOnce() {
+        setTimeout(function () {
+            try {
+                // Remove a animação de spin
+                $('.carousel').removeClass('spin-animation');
+                
+                // Esconde a animação de carregamento
+                loadingSpinner.hide(); 
 
-            if (spinCount < 11) {
-                setTimeout(function () {
-                    // Obtém a raridade com base nas probabilidades
-                    const selectedRarity = getRarity();
+                // Obtém a raridade com base nas probabilidades
+                const selectedRarity = getRarity();
+                
+                // Encontra o índice correspondente à raridade selecionada
+                const selectedIndex = results.indexOf(selectedRarity);
 
-                    // Encontra o índice correspondente à raridade selecionada
-                    const selectedIndex = results.indexOf(selectedRarity);
+                const selectedCard = cards.eq(selectedIndex);
 
-                    const selectedCard = cards.eq(selectedIndex);
+                selectedCard.css({ opacity: 1, transform: 'scale(1)' }); // Exibe a raridade selecionada
 
-                    // Incrementa o contador da raridade selecionada
-                    rarityCounters[selectedRarity]++;
-                    rarityCounters['Total']++;
+                // Incrementa o contador da raridade selecionada
+                rarityCounters[selectedRarity]++;
 
-                    // Atualiza os contadores na tela
-                    updateCounters();
+                // Incrementa o contador total de aberturas
+                rarityCounters['Total']++;
 
-                    // Atualiza o histórico com o quadrado colorido
-                    updateHistory(selectedRarity);
+                // Atualiza os contadores na tela
+                updateCounters();
 
-                    spinCount++;
-
-                    // Continua rodando até atingir 10+1
-                    spinOnce();
-
-                }, 500); // Duração da animação de 3 segundos
-            } else {
-                loadingSpinner.hide();
-                $button.prop('disabled', false); // Reabilita o botão
+                // Atualiza o histórico com o quadrado colorido
+                updateHistory(selectedRarity);
+            } catch (error) {
+                console.error("Erro durante o processamento:", error);
+            } finally {
+                // Garante que o botão seja reabilitado independentemente de qualquer erro
+                $button.prop('disabled', false);
             }
-        }
-        spinOnce();
-
+        }, animationDuration);
     }
 
     // Evento do botão para girar até aparecer uma Legendary
@@ -186,62 +176,15 @@ $(document).ready(function () {
     $('#ten').click(function () {
         var $button = $(this); // Seleciona o botão
         $button.prop('disabled', true); // desabilita o botão
-         ten($button);
+        ten($button, 10);
     });
 
     // Evento do botão para girar uma vez (original)
-$('#spin').click(function () {
-    var $button = $(this); // Seleciona o botão
-    $button.prop('disabled', true); // Desabilita o botão para evitar múltiplos cliques
+    $('#spin').click(function () {
+        var $button = $(this); // Seleciona o botão
+        $button.prop('disabled', true); // Desabilita o botão para evitar múltiplos cliques
+        spin($button);
+    });
 
-    // Exibe a animação de carregamento
-    loadingSpinner.show();
-
-    // Reseta as cartas
-    cards.css({ opacity: 0, transform: 'scale(0.5)' });
-
-    // Adiciona a animação de spin
-    $('.carousel').addClass('spin-animation');
-
-    // Usamos um tempo maior para garantir que a animação do spin seja visível
-    var animationDuration = 500; // Duração da animação (ajustar conforme necessário)
-
-    setTimeout(function () {
-        try {
-            // Remove a animação de spin
-            $('.carousel').removeClass('spin-animation');
-            
-            // Esconde a animação de carregamento
-            loadingSpinner.hide(); 
-
-            // Obtém a raridade com base nas probabilidades
-            const selectedRarity = getRarity();
-            
-            // Encontra o índice correspondente à raridade selecionada
-            const selectedIndex = results.indexOf(selectedRarity);
-
-            const selectedCard = cards.eq(selectedIndex);
-
-            selectedCard.css({ opacity: 1, transform: 'scale(1)' }); // Exibe a raridade selecionada
-
-            // Incrementa o contador da raridade selecionada
-            rarityCounters[selectedRarity]++;
-
-            // Incrementa o contador total de aberturas
-            rarityCounters['Total']++;
-
-            // Atualiza os contadores na tela
-            updateCounters();
-
-            // Atualiza o histórico com o quadrado colorido
-            updateHistory(selectedRarity);
-        } catch (error) {
-            console.error("Erro durante o processamento:", error);
-        } finally {
-            // Garante que o botão seja reabilitado independentemente de qualquer erro
-            $button.prop('disabled', false);
-        }
-    }, animationDuration); // Duração da animação de 3 segundos (ajustado para dar tempo de ver a animação)
-});
-
+    
 });
