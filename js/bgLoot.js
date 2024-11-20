@@ -99,6 +99,8 @@ $(document).ready(function () {
                 } else {
                     // Caso contrário, continua rodando
                     spinOnce();
+                }
+            }
     
     }
 
