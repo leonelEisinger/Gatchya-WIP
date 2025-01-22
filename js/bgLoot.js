@@ -13,7 +13,7 @@ $(document).ready(function () {
         "Rare": 30,
         "Mythical": 10,
         "Legendary": 4.99,
-		"Hidden": 0.01
+	"Hidden": 0.01
     };
 
     // Inicializando os contadores de raridade
@@ -22,7 +22,7 @@ $(document).ready(function () {
         "Rare": 0,
         "Mythical": 0,
         "Legendary": 0,
-		"Hidden": 0,
+	"Hidden": 0,
         "Total": 0
     };
 
@@ -34,7 +34,7 @@ $(document).ready(function () {
         "Rare": "#4287f5",   // Cor para 'Rare' (azul)
         "Mythical": "#8e44ad", // Cor para 'Mythical' (dourado)
         "Legendary": "#f1c40f", // Cor para 'Legendary' (laranja forte)
-		"Hidden": "#2c3e50" // Cor para 'Hidden' (Azul Escuro-Cinza)
+	"Hidden": "#2c3e50" // Cor para 'Hidden' (Azul Escuro-Cinza)
     };
 
     // Função para selecionar uma raridade com base nas probabilidades
@@ -57,7 +57,7 @@ $(document).ready(function () {
         $('#rareCount').text(rarityCounters["Rare"]);
         $('#mythicalCount').text(rarityCounters["Mythical"]);
         $('#legendaryCount').text(rarityCounters["Legendary"]);
-		$('#hidden').text(rarityCounters["Hidden"]);
+	$('#hidden').text(rarityCounters["Hidden"]);
         $('#total').text(rarityCounters["Total"]);
     }
 
