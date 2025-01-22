@@ -42,6 +42,7 @@ body {
 .rare { background-color: #4287f5; }
 .mythical { background-color: #8e44ad; }
 .legendary { background-color: #f1c40f; }
+.hidden { background-color: #2c3e50;}
 
 /* Animação de spin */
 .spin-animation {
