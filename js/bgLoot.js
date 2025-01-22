@@ -94,16 +94,15 @@ function legendary($button) {
             $button.prop('disabled', false); // Habilita o botão novamente
             return;
         }
-
+        spin($button); // Executa a rotação
         setTimeout(() => {
-            spin($button); // Executa a rotação
-
-            // Checa se a raridade foi "Legendary"
+                        // Checa se a raridade foi "Legendary"
             if (rarityCounters["Legendary"] > cont) {
 				cont = rarityCounters["Legendary"];
                 stop = true; // Para a rotação quando "Legendary" for encontrada
 				return;
             } else {
+                spin($button); // Executa a rotação
                 trySpin(); // Continua tentando se não for "Legendary"
             }
         }, delay);
