@@ -1,11 +1,12 @@
 $(document).ready(function () {
     const cards = $('.raridade');
-    const results = ["Common", "Rare", "Mythical", "Legendary"];
+    const results = ["Common", "Rare", "Mythical", "Legendary", "Hidden"];
     const loadingSpinner = $('.loading');
     const animationDuration = 1000; // 1 segundo dura a animação
 	const delay = 1500;
 	let cont = 0;
     loadingSpinner.hide();
+    $('#hidden-container').hide();
 
     // Definir as probabilidades para cada raridade
     const probabilities = {
@@ -13,7 +14,7 @@ $(document).ready(function () {
         "Rare": 30,
         "Mythical": 10,
         "Legendary": 4.99,
-	"Hidden": 0.01
+		"Hidden": 0.01
     };
 
     // Inicializando os contadores de raridade
@@ -22,7 +23,7 @@ $(document).ready(function () {
         "Rare": 0,
         "Mythical": 0,
         "Legendary": 0,
-	"Hidden": 0,
+		"Hidden": 0,
         "Total": 0
     };
 
@@ -34,7 +35,7 @@ $(document).ready(function () {
         "Rare": "#4287f5",   // Cor para 'Rare' (azul)
         "Mythical": "#8e44ad", // Cor para 'Mythical' (dourado)
         "Legendary": "#f1c40f", // Cor para 'Legendary' (laranja forte)
-	"Hidden": "#2c3e50" // Cor para 'Hidden' (Azul Escuro-Cinza)
+		"Hidden": "#2c3e50" // Cor para 'Hidden' (Azul Escuro-Cinza)
     };
 
     // Função para selecionar uma raridade com base nas probabilidades
@@ -57,8 +58,9 @@ $(document).ready(function () {
         $('#rareCount').text(rarityCounters["Rare"]);
         $('#mythicalCount').text(rarityCounters["Mythical"]);
         $('#legendaryCount').text(rarityCounters["Legendary"]);
-	$('#hidden').text(rarityCounters["Hidden"]);
+		$('#hiddenCount').text(rarityCounters["Hidden"]);
         $('#total').text(rarityCounters["Total"]);
+
     }
 
     // Função para adicionar o histórico com quadrados coloridos
@@ -94,7 +96,6 @@ function legendary($button) {
             $button.prop('disabled', false); // Habilita o botão novamente
             return;
         }
-        spin($button); // Executa a rotação
         setTimeout(() => {
                         // Checa se a raridade foi "Legendary"
             if (rarityCounters["Legendary"] > cont) {
@@ -157,13 +158,13 @@ function legendary($button) {
 
             selectedCard.css({ opacity: 1, transform: 'scale(1)' }); // Exibe a raridade selecionada
 
-            if(selectedRarity === "Hidden"){
-				$('hidden-container').show;
-				rarityCounters[selectedRarity]++;
-			}
 			// Incrementa o contador da raridade selecionada
             rarityCounters[selectedRarity]++;
 			
+            
+            if(rarityCounters["Hidden"] > 0){
+				$('#hidden-container').show();
+			}
 
             // Incrementa o contador total de aberturas
             rarityCounters['Total']++;
