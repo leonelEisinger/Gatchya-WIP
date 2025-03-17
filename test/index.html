@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lootbox Interativa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button>
+        <p>inventario dos cria</p>
+    </button>
+    
+    <div class="container">
+        <h1>Lootbox Interativa</h1>
+        <p>Escolha sua caixa e abra para descobrir o prêmio!</p>
+        
+        <div class="lootbox-container">
+            <div class="lootbox" id="lootbox1">
+                <div class="lootbox-face">Abrir Caixa 1</div>
+            </div>
+            <div class="lootbox" id="lootbox2">
+                <div class="lootbox-face">Abrir Caixa 2</div>
+            </div>
+            <div class="lootbox" id="lootbox3">
+                <div class="lootbox-face">Abrir Caixa 3</div>
+            </div>
+        </div>
+
+        <div class="popup-wrapper">
+            <div class="popup">
+                <div class="popup-close">X</div>
+                <div class="popup-content">
+
+                    <div id="prizeMessage" class="prize-message"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
