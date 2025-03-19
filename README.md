@@ -12,4 +12,3 @@ A gatcha/Lootbox web page for fun, with some customizable possibilities (if you 
 - Persistance data
 - Profiles/accounts
 - QoL improviments and make the site plesant to use/look
-- Implement pixijs to make satisfaying opening the cases
