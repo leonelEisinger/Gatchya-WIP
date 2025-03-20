@@ -1,30 +1,7 @@
-h1{
-	color:white;
-}
-td{
-	width:120px;
-	height:50px;
-	background:white;
-	text-align:center;
-}
-hr{
-	width:50%;
-}
-th{
-	color:white;
-}
-img{
-	height:200px;
-}
-table{
-	border:2px gray solid;
-}
-button{
-	width:120px;
-	height:50px;
-	color:darkblue;
+.offcanvas-header {
+	background-color: rgba(137, 255, 196,.3);
 }
 
-#result{
-	color:white;
+.offcanvas-body {
+	background-color: rgba(137, 255, 196,.3);
 }
