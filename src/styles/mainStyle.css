@@ -1,7 +1,11 @@
 .offcanvas-header {
-	background-color: rgba(137, 255, 196,.3);
+	background-color: #54697e;
+	color: #fff;
 }
 
 .offcanvas-body {
-	background-color: rgba(137, 255, 196,.3);
+	background-color: #454c53;
+	color: #fff;
 }
+
+      
