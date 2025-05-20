@@ -28,9 +28,24 @@ export const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [username, setUsername] = useState('Jogador');
-  const [rewards, setRewards] = useState<Reward[]>([]);
+  const [rewards, setRewards] = useState<Reward[]>([
+    {
+    id: 'avatar_1',
+    type: 'avatar',
+    name: 'Explorador',
+    image: '/assets/avatars/logo.png',
+    unlocked: true
+    },
+    {
+    id: 'avatar_2',
+    type: 'avatar',
+    name: 'Guerreiro',
+    image: '/assets/avatars/logo.png',
+    unlocked: false
+  },
+  ]);
   // ... outros estados
-
+  
   const unlockReward = (rewardId: string) => {
     setRewards(prev => prev.map(r => 
       r.id === rewardId ? {...r, unlocked: true} : r
