@@ -3,7 +3,18 @@ import React, { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 const Rewards: React.FC = () => {
-  const { rewards, selectAvatar, selectBackground, selectCursor } = useContext(UserContext);
+
+    const context = useContext(UserContext);
+  
+  // Verifica se o contexto existe
+  if (!context) {
+    return <div>Erro: Contexto não encontrado</div>;
+    // Ou algum loading state:
+    // return <div>Carregando...</div>;
+  }
+
+
+  const { rewards, selectAvatar, selectBackground, selectCursor } = context;
 
   return (
     <div className="rewards-page">
