@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + tailwindcss
 https://www.youtube.com/watch?v=ymGB1lqP1CM
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+src/
+├── assets/
+│   ├── images/
+│   │   ├── avatars/          # Avatares desbloqueáveis
+│   │   ├── backgrounds/      # Planos de fundo desbloqueáveis
+│   │   └── cursors/          # Cursors e trails desbloqueáveis
+│   └── sounds/               # Efeitos sonoros
+├── components/
+│   ├── games/                # Componentes específicos de cada jogo
+│   │   ├── MemoryGame/
+│   │   ├── PuzzleGame/
+│   │   └── TriviaGame/
+│   ├── GameCard.tsx          # Card para cada jogo
+│   ├── CustomCursor.tsx      # Componente do cursor personalizado
+│   ├── ProfileAvatar.tsx     # Componente do avatar
+│   ├── BackgroundSelector.tsx # Seletor de plano de fundo
+│   └── RewardPopup.tsx       # Popup de recompensa desbloqueada
+├── contexts/
+│   ├── UserContext.tsx       # Contexto para dados do usuário
+│   └── RewardsContext.tsx    # Contexto para recompensas
+├── hooks/
+│   ├── useCursorEffect.ts    # Hook para efeitos de cursor
+│   └── useGameLogic.ts       # Hook compartilhado para lógica de jogos
+├── pages/
+│   ├── Home.tsx              # Página inicial com lista de jogos
+│   ├── GamePage.tsx          # Página individual para cada jogo
+│   ├── Profile.tsx           # Página de perfil do usuário
+│   └── Rewards.tsx           # Página para visualizar recompensas
+├── types/
+│   └── types.ts              # Tipos TypeScript
+├── utils/
+│   ├── gameUtils.ts          # Utilitários para jogos
+│   └── rewardUtils.ts        # Utilitários para recompensas
+├── App.tsx
+├── main.tsx
+└── index.css
