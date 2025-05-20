@@ -1,4 +1,4 @@
-// src/pages/Rewards.tsx
+// src/pages/Profile.tsx
 import React, { useContext } from 'react';
 
 const Profile: React.FC = () => {
