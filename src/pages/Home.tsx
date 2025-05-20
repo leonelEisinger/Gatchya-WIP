@@ -1,7 +1,7 @@
-// src/pages/home.tsx
+// src/pages/Home.tsx
 import React, { useContext } from 'react';
 
-const home: React.FC = () => {
+const Home: React.FC = () => {
 
   return (
   <div>
@@ -10,4 +10,4 @@ const home: React.FC = () => {
   );
 };
 
-export default home;
+export default Home;
