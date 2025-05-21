@@ -8,6 +8,7 @@ import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
+    <>
     <Router>
       <CustomCursor />
       <Routes>
@@ -17,7 +18,7 @@ function App() {
         <Route path="/rewards" element={<Rewards />} />
       </Routes>
     </Router>
+  </>
   );
 }
-
 export default App;
